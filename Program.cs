@@ -9,18 +9,12 @@ class Program
         int n = 800000; // Number of random numbers to generate
         double[,] numbers; // Declare a 2D array to store random numbers
         Stopwatch timer = new Stopwatch(); // Stopwatch to measure execution time
+        
+        numbers = GenRandomNumbers(n);      // Generate random numbers and store them in the 'numbers' array
 
-        // Generate random numbers and store them in the 'numbers' array
-        numbers = GenRandomNumbers(n);
-
-        // Start measuring time
-        timer.Start();
-
-        // Perform addition operation on the 'numbers' array
-        AddNumbers(numbers, n);
-
-        // Stop measuring time
-        timer.Stop();
+        timer.Start();                            // Start measuring time
+        AddNumbers(numbers, n);       // Perform addition operation on the 'numbers' array
+        timer.Stop();                             // Stop measuring time
 
         // Display results for addition
         Console.WriteLine("Additions");
@@ -29,6 +23,7 @@ class Program
             timer.ElapsedTicks + " ticks\n");
 
         float addTicks = (float)timer.ElapsedTicks;           // Store elapsed ticks for addition
+        
         timer.Restart();                                      // Restart the timer for the multiplication operation
         MultiplyNumbers(numbers, n);              // Perform multiplication operation on the 'numbers' array
         timer.Stop();                                         // Stop measuring time
@@ -48,20 +43,20 @@ class Program
         double[,] num = new double[count,3]; // Declare(make) an array 'num' to store double values with the specified 'count'
         for (int i = 0; i < count; ++i) // Iterate through the 'num' array and assign random double values
         {
-            num[i,0] = 10000.0 * rand.NextDouble(); // Generate a random double value between 0 and 100 and store it in the array
+            num[i,0] = 10000.0 * rand.NextDouble(); // Generate a random double value between 0 and 1000 and store it in the array
             num[i,1] = 10000.0 * rand.NextDouble(); // Generate random number between 0 and 10000  //**** or ****// fill in elements of array
         }
         return num;  // Return the array of double numbers
     }            // returns reference to array
     // Function that adds numbers in the supplied 2D array
-static void AddNumbers(double[,] nums, int count)
+    static void AddNumbers(double[,] nums, int count)
     {   int i; // Declare a variable 'i' for the loop
         for (i = 0; i < count; ++i){  // Iterate through the rows of the 'nums' array
         nums[i, 2] = nums[i, 0] + nums[i, 1];  // Add the values in the first and second columns of each row and store the result in the third column
         }
     }
 // Function that multiplies numbers in the supplied 2D array
-static void MultiplyNumbers(double[,] nums, int count)
+    static void MultiplyNumbers(double[,] nums, int count)
     {   int i; // Declare a variable 'i' for the loop
         for (i = 0; i < count; ++i){// Iterate through the rows of the 'nums' array
         nums[i, 2] = nums[i, 0] * nums[i, 1];   // Multiply the values in the first and second columns of each row and store the result in the third column
