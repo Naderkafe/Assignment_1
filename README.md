@@ -18,3 +18,30 @@ to answer two questions: One question from Group A below, and onefrom Group B.
 * Which is faster: computing the square of a double via direct multiplication, or computing thesquare using the built in function Math.Pow function? Also compare these to the built-insquare root function: Math.Sqrt function.
 * Which is faster: computing the sine of an angle using the built-in function Math.Sin, or bycalculating a quintic Taylor series approximation: 𝒙 − 𝟏𝟔 𝒙𝟑 + 𝟏𝟏𝟐𝟎 𝒙𝟓? Also compare the cosinefunction Math.Cos
 * Which is faster: computing the exponential (i.e. 𝒆𝒙) using the built-in function Math.Exp, or bycalculating the cubic Taylor series approximation: 𝟏 + 𝒙 + 𝟏𝟐 𝒙𝟐 + 𝟏𝟔 𝒙𝟑? Also compare thespeed of using the natural log function Math.Log
+# Speed Comparison Experiments
+
+## Experiment 1: Speed Comparison between Adding Floats and Doubles
+
+**Objective:**
+Assess the speed of adding two arrays containing floats and doubles, both generated using random numbers.
+
+**Findings:**
+- Addition of floats was observed to be faster than that of doubles, aligning with expectations.
+- Float operations are generally faster than double operations on modern hardware due to lower precision (32-bit) but faster processing by the CPU.
+- In scenarios where precision is not critical, adding floats is the superior choice in terms of speed.
+
+## Experiment 2: Speed Comparison for Calculating Squares and Square Roots
+
+**Objective:**
+Examine three methods for calculating squares and square roots of an array of doubles: direct multiplication, Math.Pow, and Math.Sqrt.
+
+**Observations:**
+- Direct multiplication significantly outperforms Math.Pow and Math.Sqrt in square calculations due to its simplicity.
+- Math.Pow exhibits the slowest performance in square calculations among the tested methods.
+- Math.Sqrt, while slower than direct multiplication, is faster than Math.Pow in square calculations.
+- For scenarios where precision is not critical and square calculations are required, direct multiplication is the optimal choice for speed.
+- When computing square roots, Math.Sqrt is the preferred option, offering both speed and accuracy.
+
+## Conclusion:
+
+These experiments provide insights into the performance characteristics of float and double addition as well as methods for square and square root calculations. Consider these findings when choosing between precision and speed in your specific application scenarios.
